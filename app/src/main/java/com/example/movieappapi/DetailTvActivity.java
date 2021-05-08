@@ -38,6 +38,7 @@ public class DetailTvActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
         Integer tvId = getIntent().getIntExtra("TV ID", 0);
         load(tvId);
     }
@@ -57,13 +58,14 @@ public class DetailTvActivity extends AppCompatActivity {
                     TvShowDetail tvShowDetail = response.body();
                     tvTitle.setText(tvShowDetail.getTitle());
                     tvNumOfEpisodes.setText(tvShowDetail.getEpisodes());
+
                     String uri = Consts.IMAGEBASEURL + tvShowDetail.getBackdropImage();
                     String uri2 = Consts.IMAGEBASEURL + tvShowDetail.getPosterImage();
                     Glide.with(DetailTvActivity.this).load(uri).into(ivBackdrop);
                     Glide.with(DetailTvActivity.this).load(uri2).into(ivPoster);
+                    getSupportActionBar().setTitle(tvTitle.getText());
 
-                }
-                else {
+                }else {
                     Log.d(Consts.APIERROR, "error");
                 }
             }

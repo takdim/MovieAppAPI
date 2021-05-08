@@ -1,4 +1,4 @@
-package com.example.movieappapi.models.tv;
+package com.example.movieappapi.adapters.tv;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.movieappapi.R;
 import com.example.movieappapi.helper.OnItemClickListener;
+import com.example.movieappapi.models.tv.TvShow;
 import com.example.movieappapi.networks.Consts;
 
 import java.util.List;

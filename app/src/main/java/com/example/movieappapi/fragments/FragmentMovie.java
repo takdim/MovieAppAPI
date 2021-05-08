@@ -1,5 +1,6 @@
 package com.example.movieappapi.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,8 +13,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.movieappapi.DetailTvActivity;
+import com.example.movieappapi.MovieActivityDetail;
 import com.example.movieappapi.R;
 import com.example.movieappapi.adapters.movie.NowPlayingAdapter;
+import com.example.movieappapi.helper.OnItemClickListener;
 import com.example.movieappapi.models.movie.NowPLayingResult;
 import com.example.movieappapi.networks.Consts;
 import com.example.movieappapi.networks.GetRetrofit;
@@ -26,7 +30,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FragmentMovie extends Fragment {
+public class FragmentMovie extends Fragment implements OnItemClickListener<Integer> {
 
     private RecyclerView rvMovie;
     private NowPlayingAdapter nowPlayingAdapter;
@@ -56,6 +60,9 @@ public class FragmentMovie extends Fragment {
         rvMovie = view.findViewById(R.id.rv_Movie);
         rvMovie.setLayoutManager(new GridLayoutManager(getActivity(), 3));
         rvMovie.setHasFixedSize(true);
+
+        nowPlayingAdapter = new NowPlayingAdapter();
+        nowPlayingAdapter.setClickListener(this);
         load();
         return view;
     }
@@ -73,7 +80,6 @@ public class FragmentMovie extends Fragment {
             @Override
             public void onResponse(Call<NowPLayingResult> call, Response<NowPLayingResult> response) {
                 if (response.isSuccessful() && response.body().getNowPlayingList() != null){
-                    nowPlayingAdapter = new NowPlayingAdapter();
                     nowPlayingAdapter.setNowPlayingList(response.body().getNowPlayingList());
                     rvMovie.setAdapter(nowPlayingAdapter);
                 }else {
@@ -87,5 +93,14 @@ public class FragmentMovie extends Fragment {
                 Log.d(Consts.APIERROR, "error");
             }
         });
+    }
+
+    @Override
+    public void onClick(Integer id) {
+        Intent intent = new Intent(getActivity(), MovieActivityDetail.class);
+        if (id != null){
+            intent.putExtra("TV ID", id);
+            startActivity(intent);
+        }
     }
 }

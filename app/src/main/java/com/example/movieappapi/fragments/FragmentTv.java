@@ -17,7 +17,7 @@ import com.example.movieappapi.DetailTvActivity;
 import com.example.movieappapi.R;
 import com.example.movieappapi.helper.OnItemClickListener;
 import com.example.movieappapi.models.tv.TvResult;
-import com.example.movieappapi.models.tv.TvShowAdapter;
+import com.example.movieappapi.adapters.tv.TvShowAdapter;
 import com.example.movieappapi.networks.Consts;
 import com.example.movieappapi.networks.GetRetrofit;
 import com.example.movieappapi.networks.MovieService;
