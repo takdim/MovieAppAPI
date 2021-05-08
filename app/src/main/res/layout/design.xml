@@ -11,12 +11,14 @@
     <ImageView
         android:layout_width="150dp"
         android:layout_height="200dp"
-
         android:id="@+id/photo"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvJudul"
+        android:layout_marginLeft="10dp"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:text="tvJudul"/>
 
 

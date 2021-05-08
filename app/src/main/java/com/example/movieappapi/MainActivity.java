@@ -35,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         fragmentMap.put(R.id.nav_movie, FragmentMovie.newInstance());
+        fragmentMap.put(R.id.nav_tvShow, FragmentTv.newInstance());
+        fragmentMap.put(R.id.nav_bookmark, FragmentBookmark.newInstance());
+        
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         bottomNav.setSelectedItemId(R.id.nav_movie);
     }

@@ -11,7 +11,21 @@ import androidx.fragment.app.Fragment;
 
 public class FragmentBookmark extends Fragment {
 
-    @Nullable
+    public  FragmentBookmark(){
+
+    }
+    public static FragmentBookmark newInstance(){
+        FragmentBookmark fragment = new FragmentBookmark();
+        Bundle args = new Bundle();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.movie_bookmark, container, false);
