@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.movieappapi.fragments.FragmentBookmark;
+import com.example.movieappapi.fragments.FragmentMovie;
+import com.example.movieappapi.fragments.FragmentTv;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.HashMap;
@@ -37,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentMap.put(R.id.nav_movie, FragmentMovie.newInstance());
         fragmentMap.put(R.id.nav_tvShow, FragmentTv.newInstance());
         fragmentMap.put(R.id.nav_bookmark, FragmentBookmark.newInstance());
-        
+
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         bottomNav.setSelectedItemId(R.id.nav_movie);
     }
